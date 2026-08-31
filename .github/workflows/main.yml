@@ -1,5 +1,4 @@
 
-```yaml
 name: Form Automation
 
 on:
@@ -39,4 +38,3 @@ jobs:
           SUBMIT_SELECTOR: "button[type='submit']"
 
         run: python bot.py
-```
