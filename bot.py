@@ -1,6 +1,3 @@
-### `bot.py`
-
-```python
 import os
 import time
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
@@ -167,7 +164,5 @@ def run():
 
     print("\nCooldown finished.")
 
-
 if __name__ == "__main__":
     run()
-```
