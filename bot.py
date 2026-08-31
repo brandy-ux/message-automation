@@ -5,8 +5,8 @@ import os
 import time
 from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
-TARGET_URL = os.environ["https://zefame.com/en/free-instagram-likes"]
-SUBMISSION_LINK = os.environ["https://www.instagram.com/p/DcokpCGDHMP/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA=="]
+TARGET_URL = os.environ["TARGET_URL"]
+SUBMISSION_LINK = os.environ["SUBMISSION_LINK"]
 
 TEXTBOX_SELECTOR = os.getenv(
     "TEXTBOX_SELECTOR",
