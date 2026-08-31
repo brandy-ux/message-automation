@@ -12,7 +12,7 @@ TEXTBOX_SELECTOR = os.getenv(
 
 SUBMIT_SELECTOR = os.getenv(
     "SUBMIT_SELECTOR",
-    "button[type='submit']"
+    "button[type='https://www.instagram.com/p/DcokpCGDHMP/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==']"
 )
 
 COOLDOWN_SECONDS = 32 * 60
