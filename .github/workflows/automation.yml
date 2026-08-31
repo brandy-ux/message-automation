@@ -1,3 +1,6 @@
+### `.github/workflows/automation.yml`
+
+```yaml
 name: Form Automation
 
 on:
@@ -9,6 +12,7 @@ permissions:
 jobs:
   automation:
     runs-on: ubuntu-latest
+
     timeout-minutes: 45
 
     steps:
@@ -30,6 +34,10 @@ jobs:
         env:
           TARGET_URL: ${{ secrets.TARGET_URL }}
           SUBMISSION_LINK: ${{ secrets.SUBMISSION_LINK }}
-          TEXTBOX_SELECTOR: ${{ secrets.TEXTBOX_SELECTOR }}
-          SUBMIT_SELECTOR: ${{ secrets.SUBMIT_SELECTOR }}
+
+          # These are selectors, not secrets.
+          TEXTBOX_SELECTOR: "input[name='url']"
+          SUBMIT_SELECTOR: "button[type='submit']"
+
         run: python bot.py
+```
