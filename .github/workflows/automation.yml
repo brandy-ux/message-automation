@@ -9,7 +9,6 @@ permissions:
 jobs:
   automation:
     runs-on: ubuntu-latest
-
     timeout-minutes: 45
 
     steps:
@@ -25,15 +24,23 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          playwright install --with-deps chromium
+          python -m playwright install --with-deps chromium
 
       - name: Run automation
         env:
           TARGET_URL: ${{ secrets.TARGET_URL }}
           SUBMISSION_LINK: ${{ secrets.SUBMISSION_LINK }}
-
-          # These are selectors, not secrets.
-          TEXTBOX_SELECTOR: "input[name='url']"
-          SUBMIT_SELECTOR: "button[type='submit']"
-
+          # Do NOT add TEXTBOX_SELECTOR or SUBMIT_SELECTOR unless auto-detection
+          # cannot find the controls on the target page.
+          COOLDOWN_SECONDS: "1920"
         run: python bot.py
+
+      - name: Upload automation diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: automation-diagnostics
+          path: |
+            automation-error.png
+            automation-error.html
+          if-no-files-found: ignore
