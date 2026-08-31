@@ -1,6 +1,3 @@
-### `.github/workflows/automation.yml`
-
-```yaml
 name: Form Automation
 
 on:
